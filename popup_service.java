@@ -1,4 +1,4 @@
-package com.gamebooster.oneui7;
+package com.gamebooster.hyperos;
 
 import android.app.Service;
 import android.content.Intent;
@@ -11,20 +11,14 @@ import android.view.WindowManager;
 
 public class popup_service extends Service {
 
-    private WindowManager windowManager;
+    private WindowManager wm;
     private View popupView;
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        popupView = LayoutInflater.from(this).inflate(R.layout.popup_layout, null);
+        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -33,18 +27,23 @@ public class popup_service extends Service {
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
 
-        params.gravity = Gravity.TOP | Gravity.RIGHT;
-        params.x = 20;
-        params.y = 150;
+        params.gravity = Gravity.TOP | Gravity.LEFT;
+        params.x = 50;
+        params.y = 200;
 
-        windowManager.addView(popupView, params);
+        popupView = LayoutInflater.from(this).inflate(R.layout.popup_layout, null);
 
-        popupView.setOnClickListener(v -> stopSelf());
+        wm.addView(popupView, params);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (popupView != null) windowManager.removeView(popupView);
+        if (popupView != null) wm.removeView(popupView);
     }
-                                     }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+}
