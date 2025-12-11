@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center"
-    android:background="#000000"
+    android:padding="20dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <TextView
-        android:text="Game Booster OneUI 7"
-        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GameBooster - HyperOS Style"
         android:textColor="#00E5FF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textSize="20sp" />
 
-    <TextView
-        android:text="Premium Mode Active"
-        android:textSize="16sp"
-        android:textColor="#00FFC4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_start_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Hyper Popup"
+        android:layout_marginTop="12dp"/>
 
+    <Button
+        android:id="@+id/btn_stop_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop Hyper Popup"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
