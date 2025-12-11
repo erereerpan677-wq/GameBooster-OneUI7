@@ -1,35 +1,36 @@
-package com.gamebooster.oneui7;
+package com.gamebooster.hyperos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.Intent;
 
 public class logic extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main); // layout utama
+        setContentView(R.layout.layout);
 
-        // Tombol mulai overlay
-        Button btnStart = findViewById(R.id.btn_start_overlay);
-        Button btnStop  = findViewById(R.id.btn_stop_overlay);
+        Button startOverlay = findViewById(R.id.btn_start_overlay);
+        Button stopOverlay = findViewById(R.id.btn_stop_overlay);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
+        // START POPUP
+        startOverlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(logic.this, overlay_service.class);
-                startService(i);
+                Intent svc = new Intent(logic.this, popup_service.class);
+                startService(svc);
             }
         });
 
-        btnStop.setOnClickListener(new View.OnClickListener() {
+        // STOP POPUP
+        stopOverlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(logic.this, overlay_service.class);
-                stopService(i);
+                Intent svc = new Intent(logic.this, popup_service.class);
+                stopService(svc);
             }
         });
     }
