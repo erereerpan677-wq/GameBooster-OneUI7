@@ -5,33 +5,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.provider.Settings;
 
 public class logic extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout);
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-        Button startOverlay = findViewById(R.id.btn_start_overlay);
-        Button stopOverlay = findViewById(R.id.btn_stop_overlay);
-
-        // START POPUP
-        startOverlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent svc = new Intent(logic.this, popup_service.class);
-                startService(svc);
-            }
-        });
-
-        // STOP POPUP
-        stopOverlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent svc = new Intent(logic.this, popup_service.class);
-                stopService(svc);
-            }
-        });
+    // CEK IZIN OVERLAY
+    if (!Settings.canDrawOverlays(this)) {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+        startActivity(intent);
     }
+
+    setContentView(R.layout.layout);
+
+    Button startOverlay = findViewById(R.id.btn_start_overlay);
+    Button stopOverlay = findViewById(R.id.btn_stop_overlay);
+
+    // START POPUP
+    startOverlay.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent svc = new Intent(logic.this, popup_service.class);
+            startService(svc);
+        }
+    });
+
+    // STOP POPUP
+    stopOverlay.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent svc = new Intent(logic.this, popup_service.class);
+            stopService(svc);
+        }
+    });
 }
