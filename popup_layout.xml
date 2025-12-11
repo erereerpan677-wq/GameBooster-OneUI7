@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:padding="12dp"
-    android:gravity="center"
-    android:background="#1AFFFFFF"
-    android:layout_width="120dp"
-    android:layout_height="80dp">
+    android:padding="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
 
-    <TextView
-        android:text="BOOST"
-        android:textColor="#00E5FF"
-        android:textSize="22sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#CC0B0B0B"  <!-- gelap semi-transparan -->
+        android:clipToPadding="false"
+        android:layout_margin="4dp"
+        android:rotation="0">
 
+        <TextView
+            android:id="@+id/tv_popup_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HYPER • BOOST"
+            android:textSize="14sp"
+            android:textColor="#00E5FF"
+            android:paddingBottom="6dp" />
+
+        <!-- tombol visual (UI only) -->
+        <TextView
+            android:id="@+id/btn_boost"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:text="BOOST"
+            android:textAllCaps="true"
+            android:textColor="#001218"
+            android:background="#00E5FF"
+            android:layout_marginTop="6dp"
+            android:padding="6dp"/>
+    </LinearLayout>
 </LinearLayout>
