@@ -1,24 +1,19 @@
 package com.gamebooster.oneui7;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.content.Intent;
 
-/**
- * logic.java
- * Entry activity yang memulai overlay popup (HyperOS style)
- * Aman, ringan — hanya contoh UI / trigger overlay.
- */
 public class logic extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main); // pastikan layout.xml bernama main
+        setContentView(R.layout.main); // layout utama
 
-        // Tombol contoh untuk mulai/stop overlay
+        // Tombol mulai overlay
         Button btnStart = findViewById(R.id.btn_start_overlay);
         Button btnStop  = findViewById(R.id.btn_stop_overlay);
 
