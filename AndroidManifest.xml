@@ -15,5 +15,8 @@
         </activity>
 
     </application>
+<service android:name=".popup_service"
+    android:exported="false" />
 
 </manifest>
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
